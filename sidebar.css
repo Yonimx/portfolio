@@ -1,0 +1,102 @@
+    /* Your original body and main styles */
+    body {
+      background-color: #1c1a1a;
+      align-items: center;
+      justify-content: center;
+      overflow-x: auto;
+      overflow-y: auto !important; /* Force scrolling to be enabled */
+      width: 100%;
+    }
+
+    /* Bootstrap sidebar styles - reduced width */
+    .offcanvas-body {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .offcanvas-md {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px; /* Reduced from 250px */
+        height: 100%;
+        z-index: 1045;
+        display: block !important;
+        transform: none !important;
+        visibility: visible !important;
+        border-right: 1px solid #444;
+      }
+
+      .main-content {
+      margin-left: 300px;
+      width: calc(100% - 300px);
+      }
+      #sidebarMenu{
+        width: 300px;
+      }
+    }
+
+    .sidebar-header {
+      padding: 0.75rem; /* Reduced padding */
+      border-bottom: 1px solid #444;
+    }
+
+    .nav.flex-column {
+      padding-left: 0;
+      margin-top: 1rem;
+    
+    }
+    .nav.flex-column a{
+        padding: 10px 0 10px 20px;
+    }
+
+    .nav-link {
+      text-align: left;
+      padding: 0.6rem 0.8rem; /* Reduced padding */
+      margin: 0.2rem 0; /* Reduced margin */
+      border-radius: 0.375rem;
+      color: #ffffff;
+      transition: background-color 0.3s, padding-left 0.3s;
+      font-size: 0.9rem; /* Slightly smaller font */
+    }
+
+    .nav-link:hover {
+      background-color: #495057;
+      padding-left: 1rem; /* Reduced hover padding */
+    }
+
+    .nav-link.active {
+      background-color: #6c757d;
+      font-weight: 600;
+    }
+
+    .dropdown-menu-dark .dropdown-item:hover {
+      background-color: #495057;
+    }
+
+    .dropdown-menu-dark {
+      background-color: #343a40;
+    }
+
+    /* Adjust profile section in sidebar */
+    .sidebar-profile {
+      padding: 0.5rem; /* Reduced padding */
+      border-bottom: #ffffff;
+    }
+
+    .sidebar-profile img {
+      width: 60px !important; /* Reduced image size */
+      height: 60px !important;
+    }
+
+    .sidebar-profile .fw-bold {
+      font-size: 0.9rem !important; /* Smaller name font */
+    }
+
+    .sidebar-profile .fs-6 {
+      font-size: 0.8rem !important; /* Smaller subtitle */
+    }
+
+    
