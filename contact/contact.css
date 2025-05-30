@@ -1,0 +1,75 @@
+
+    body {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main-content {
+      margin-left: 300px;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    @media (max-width: 991.98px) {
+      .main-content {
+        margin-left: 0;
+        padding: 1.5rem;
+      }
+    }
+
+    .page-header {
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #e74c3c;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      background-color: #34495e;
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-box img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #e74c3c;
+      margin-bottom: 1rem;
+    }
+
+    .contact-box h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-box p {
+      color: #bdc3c7;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-icons a {
+      color: #ecf0f1;
+      font-size: 1.25rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #e74c3c;
+    }
+
+    .sidebar-profile img {
+      border: 2px solid #e74c3c;
+    }
