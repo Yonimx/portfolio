@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Data Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: white;
+    }
+
+
+    
+.fullname{
+  margin-top: 40px;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+.nameinput{
+    display: flex;
+    flex-direction: row; 
+    flex: 1;
+}
+.names{
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex: 1;
+}
+.names label{
+    margin-top: 5px;
+    font-size: 10px;
+    align-self: center;
+}
+
+.names input{
+    width: 100%;  
+    justify-items: center;
+    padding: 0;
+    
+}
+ 
+.aux label{
+    font-size: 10px;
+    text-align: center;
+}
+
+.nameinput .aux label{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aux{
+    display: flex; 
+    flex-direction: column; 
+    flex: 0.5;
+    max-width: 100px;
+}
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid black;
+      padding: 30px;
+    }
+
+    header{
+    display: flex;
+    justify-content: space-between;
+}
+input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.upperhead{
+    font-weight: bolder;
+    font-size: medium;
+    justify-items: center;
+    align-items: center;
+}
+
+.upperhead span{
+    font-weight: lighter;
+    font-size: small;
+}
+
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .header h2 {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .row, .rowname {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+	.rowname {
+		text-align: center;
+	}
+
+    .col {
+      flex: 1;
+      padding-right: 10px;
+      min-width: 200px;
+    }
+
+	.col1{
+		display: flex;
+		flex-direction: column;
+	}
+
+    .inline-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    .inline-label label {
+      display: inline-block;
+      width: 130px;
+      /*font-weight: bold;*/
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"] {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid black;
+      background: transparent;
+      padding: 2px 2px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .checkbox-group {
+      margin-bottom: 10px;
+    }
+
+    .checkbox-group label {
+      display: block;
+      font-weight: normal;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 20px 0 10px;
+      padding-bottom: 5px;
+    }
+
+	#status {
+      		font-weight: bold;
+	}
+
+    .parents {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .indivparent {
+      flex: 1;
+	justify-content: space-between;
+    }
+    
+
+.studdeets span {
+    font-weight: bolder;
+    font-size: large;
+}
+.nametapat{
+    display: flex;
+    font-size: .8rem;
+    justify-content: space-between;
+}
+.oneinput {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.oneinput input {
+    flex: 1; 
+}
+
+.three-input {
+    display: flex;
+    gap: 10px; 
+    width: 100%;
+    margin-top: 5px;
+    
+    align-items: center;
+} 
+.inputgroup {
+    flex: 1; 
+    display: flex; 
+}
+.inputgroup label {
+    white-space: nowrap; 
+}
+.three-input .inputgroup input {
+    width: 100%;
+}
+ 
+
+
+.studdeets_container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.left, .right {
+    flex: 1;
+    font-weight: lighter;
+}
+.alien{
+    display: flex;
+    gap: 10px;
+}
+.aux input{
+    justify-content: center;
+    text-align: center;
+} 
+.inputgroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.studdeets_container .inputgroup input{
+    max-width: 250px;
+}
+.labeltext {
+    width: 80px; 
+    text-align: left;
+}
+ 
+.colon {
+    margin: 0 5px; 
+}
+
+input[type="text"] { 
+    flex: 1;
+}
+.studdeets{
+    font-size: small;
+    margin: 5px 0;
+}
+.studdeets span{
+    font-size: small;
+}
+
+.check {
+    display: flex;
+    gap: 20px;
+}
+
+.check1, .check2 { 
+    display: flex;
+    flex-direction: row;
+    gap: 10px; 
+    flex: 1;
+}
+
+.label {
+    font-weight: bold;
+     
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: justify;
+}
+
+.check2{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.check2below {
+    display: flex;
+    gap: 10px; 
+}
+.checkboxes2{
+    display: flex;
+    flex-direction: column;
+
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">LOGO</div>
+      <div class="titleheader">
+          <div class="upperhead">
+              SAMPLE UNIVERSITY<br>
+              <span>ENROLLMENT SYSTEM</span>
+          </div>
+          <div class="lowerhead">
+              PERSONAL DATA SHEET <BR>
+              (Graduate School, Medicine)
+          </div>
+      </div>
+      <div class="head3"> 
+              <label>
+                  Program: 
+              </label>
+              <input type="" id="" name="" required>
+              <br>
+              <label for="studNo">
+                  Student #: 
+              </label>
+              <input type="" id="" name="" required> 
+      </div>
+  </header>
+  <main>
+    <div class="fullname">
+      <div class="nameinput">
+          <div class="names"> 
+              <input type="" id="given-name" name="" required>
+              <label for="">SURNAME</label>
+          </div>
+          <div class="names"> 
+              <input type="" id="given-name" name="" required>
+              <label for="">GIVEN NAME</label>
+          </div>
+          <div class="names"> 
+              <input type="" id="middle" name="" required>
+              <label for="">MIDDLE NAME</label>
+          </div>
+      </div>
+  
+      <div class="aux">
+          <input type="">
+          <label>
+              AUXILIARY NAME <br>
+                
+                  (Sr,Jr,I,II,III,etc.)
+                
+          </label>
+      </div>
+    </div>
+    <section class="studdeets">
+        <span>STUDENT DETAILS</span>
+        <br>
+        <div class="oneinput">
+            <label>City Address</label><input type="text">
+        </div>
+        <div class="three-input">
+            <div class="inputgroup">
+                <label>Zip Code:</label><input type="text">
+            </div>
+            <div class="inputgroup">
+                <label>Tel. No. :</label><input type="text">
+            </div>
+            <div class="inputgroup">
+                <label>E-mail address :</label><input type="text">
+            </div>
+        </div>                
+        <div class="oneinput">
+            <label>Home Address:</label><input type="text">
+        </div>
+        <div class="studdeets_container">
+            <div class="left">
+                <div class="inputgroup">
+                    <span class="labeltext">Zip Code</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Birthday</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Birthplace</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Citizenship</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="alien">
+                    <div class="alienlabel">If Alien, ACR # (see Registrar) :</div><input type="text" name="" id="">
+                </div>
+            </div>   
+              
+            <div class="right">
+                <div class="inputgroup">
+                    <span class="labeltext">Region</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Age</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Religion</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+                <div class="inputgroup">
+                    <span class="labeltext">Sex</span><span class="colon">:</span>
+                    <input type="text">
+                </div>
+            </div>
+            
+        </div> 
+        
+        
+    </section>
+
+    <section  class="check">
+      <div class="check1">
+          <div class="label">
+              Legal Status:
+          </div>
+          <div class="checkboxes">
+              <label><input type="checkbox"> Citizen of RP</label>
+              <label><input type="checkbox"> Permanent Resident</label>
+              <label><input type="checkbox"> Person granted permission to enter and remain as a student in RP on a visa for a defined period of time</label>
+              <label><input type="checkbox"> Person Granted permission to enter and remain as a child or spouse of a worker on a visa for a defined period of time</label>
+              <label><input type="checkbox"> Other vise</label>
+              <label><input type="checkbox"> Legal status not known</label>
+          </div>
+      </div>
+      <div class="check2">
+          <div class="label">
+          Civil Status:
+          </div>
+          <div class="checkboxes-group">
+              <div class="checkboxes2">
+                  <label><input type="checkbox"> Single</label>
+                  <label><input type="checkbox"> Married</label>
+                  <label><input type="checkbox"> Divorced</label>
+                  <label><input type="checkbox"> Widowed</label>
+                  <label><input type="checkbox"> Separated</label>
+              </div>
+              
+          </div>
+          <div class="working">
+              <div class="check2below">
+                  <label><input type="checkbox"> Working</label>
+                  <label><input type="checkbox"> Not working</label>
+              </div>
+              <div class="workinginput">
+                  <label>If Working: Office/Bus. Tel.#:  </label>
+                  <input type="text">
+              </div>
+          </div>
+      </div>
+      
+  </section>
+
+    <div class="parents">
+      <div class="indivparent">
+        <div class="section-title">FATHER'S INFORMATION:</div>
+        <div class="col">
+          <div class="row inline-label"><label>Surname:</label><input type="text"></div>
+          <div class="row inline-label"><label>First Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Middle Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Auxiliary Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Occupation:</label><input type="text"></div>
+          <div class="row inline-label"><label>Education:</label><input type="text"></div>
+        </div>
+      </div>
+
+      <div class="indivparent">
+        <div class="section-title">MOTHER'S INFORMATION:</div>
+        <div class="col">
+          <div class="row inline-label"><label>Surname:</label><input type="text"></div>
+          <div class="row inline-label"><label>First Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Middle Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Auxiliary Name:</label><input type="text"></div>
+          <div class="row inline-label"><label>Occupation:</label><input type="text"></div>
+          <div class="row inline-label"><label>Education:</label><input type="text"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col inline-label"><label>Parent's Address:</label><input type="text"></div>
+    </div>
+
+    <div class="row">
+      <div class="col inline-label"><label>Zip Code:</label><input type="text"></div>
+      <div class="col inline-label"><label>Parent's Tel. #:</label><input type="text"></div>
+    </div>
+
+    <div class="section-title">GUARDIAN'S INFORMATION (If Applicable):</div>
+    <div class="col">
+      <div class="row inline-label"><label>Surname:</label><input type="text"></div>
+      <div class="row inline-label"><label>First Name:</label><input type="text"></div>
+      <div class="row inline-label"><label>Middle Name:</label><input type="text"></div>
+      <div class="row inline-label"><label>Auxiliary Name:</label><input type="text"></div>
+      <div class="row inline-label"><label>Occupation:</label><input type="text"></div>
+      <div class="row inline-label"><label>Off./Bus. Tel. #:</label><input type="text"></div>
+    </div>
+
+    <div class="col">
+      <div class="row inline-label"><label>Guardian's Address:</label><input type="text"></div>
+      <div class="row inline-label"><label>Zip Code:</label><input type="text"></div>
+      <div class="row inline-label"><label>Tel. #:</label><input type="text"></div>
+    </div>
+
+  </div>
+</body>
+</html>

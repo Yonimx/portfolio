@@ -1,0 +1,60 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #004499;
+}
+
+/* Shape Container */
+.shapecontainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.shapecontainer h1 {
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.shapecontainer img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+
+
+
+section h4 {
+    color: #444;
+    margin-top: 0;
+}
+
+.immap {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.immap img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow only on the image */
+}
