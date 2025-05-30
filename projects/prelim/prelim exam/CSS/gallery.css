@@ -1,0 +1,117 @@
+body{
+    background-image: none;
+}
+.gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 20px;
+    width: 80%;
+}
+.navmiddle{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+.navmiddle img {
+   height: 90px;
+}
+
+
+main{
+    z-index: 1;
+    padding: 20px;
+}
+.galleryproduct {
+    display: flex;
+    flex-direction: column; 
+    background-color: white;
+    border: 1px solid grey;
+    overflow: hidden;
+    text-align: left;
+    padding: 15px;
+    max-width: 600px;
+    height: auto; 
+}
+
+.galleryproduct a {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    text-decoration: none;
+    color: #303130;
+}
+
+.galleryproduct img {
+    width: 50%;
+    max-height: 500px;
+    padding: 0 10px;
+    max-width: 300px;
+    height: 100%;
+    object-fit: fill;
+}
+
+.infoproduct {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: 13px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 5px;
+    flex-grow: 1; 
+}
+.furnt{
+    padding:10px;
+    color: #0c0c0c;
+    font-weight: 200 ;
+    font-size: 2.5rem;
+    display: flex;
+    font-family: "Barlow Semi Condensed", sans-serif;;
+    text-align: center;
+    justify-content: center;
+    
+    letter-spacing: 2.5px;
+}
+.sort{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 0.5rem;
+}
+.new-price {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+}
+
+.galleryproduct button {
+    background: #ea2e2ecf;
+    color: white;
+    border: 2px solid #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%; 
+    margin-top: auto;
+}
+
+.galleryproduct button:hover {
+    background: green;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+

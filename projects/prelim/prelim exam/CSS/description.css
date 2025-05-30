@@ -1,0 +1,154 @@
+
+body{
+    background-image: none;
+}
+.descgrid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    margin: 50px auto;
+    padding: 20px;
+}
+.descimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.galleryproduct img {
+    width: 50%;
+    max-height: 500px;
+    padding: 0 10px;
+    max-width: 300px;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.descinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+}
+
+.descinfo .title {
+    font: 1em sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.p1 {
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    display: inline-block;
+    margin: 0;
+}
+.basicinfo {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+    padding: 20px 0;
+    border-top: grey 1px solid;
+    border-bottom: grey 1px solid;
+}
+.voucherdesc span{
+    padding: .3rem;
+    border-top: #e60000 1px solid;
+    border-bottom: #e60000 1px solid;
+    border-left: #e60000 1px dotted;
+    border-right: #e60000 1px dotted;
+}
+.descprice {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.oldprice {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.newprice {
+    color: #e60000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.discount {
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.descinfo p {
+    font-size: 16px;
+    color: black;
+}
+
+.minus, .plus {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 5px;
+}
+
+
+.descinfo button {
+    background: #ea2e2ecf;
+    color: white;
+    border: 2px solid #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%; 
+    margin-top: auto;
+}
+
+.descinfo button:hover {
+    background: green;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+.reviews {
+    width: 80%; 
+    background: white;
+    margin-bottom: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.reviews h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.no-reviews {
+    font-size: 16px;
+    color: #888;
+}
+
