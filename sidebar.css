@@ -6,6 +6,8 @@
       overflow-x: auto;
       overflow-y: auto !important; /* Force scrolling to be enabled */
       width: 100%;
+    }.nav{
+      border-top: rgba(255, 255, 255, 0.174) solid 1px;
     }
 
     /* Bootstrap sidebar styles - reduced width */
