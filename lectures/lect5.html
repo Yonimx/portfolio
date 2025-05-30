@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lecture 5: CSS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      border-bottom: 2px solid #2ecc71;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 1rem;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #2ecc71;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2ecc71;
+    }
+
+    p.center {
+      text-align: center;
+    }
+
+    p.red {
+      color: #e74c3c;
+    }
+
+    p#blue-paragraph {
+      color: #3498db;
+      text-align: center;
+    }
+
+    h2.center {
+      text-align: center;
+    }
+
+    .highlight {
+      color: #f1c40f;
+    }
+
+    .green {
+      color: #2ecc71;
+    }
+
+    .bg-image {
+      background-image: url('background-placeholder.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .border-box {
+      border: 2px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .border-dashed {
+      border: 2px dashed #2ecc71;
+    }
+
+    .border-dotted {
+      border: 2px dotted #e67e22;
+    }
+
+    .border-double {
+      border: 4px double #9b59b6;
+    }
+
+    .border-groove {
+      border: 4px groove #1abc9c;
+    }
+
+    .border-ridge {
+      border: 4px ridge #f39c12;
+    }
+
+    .border-inset {
+      border: 4px inset #c0392b;
+    }
+
+    .border-outset {
+      border: 4px outset #2980b9;
+    }
+
+    .border-left {
+      border-left: 4px solid #e74c3c;
+    }
+
+    .border-right {
+      border-right: 4px solid #3498db;
+    }
+
+    .border-top {
+      border-top: 4px solid #f1c40f;
+    }
+
+    .border-bottom {
+      border-bottom: 4px solid #9b59b6;
+    }
+
+    .rounded {
+      border: 2px solid #ecf0f1;
+      border-radius: 15px;
+      padding: 10px;
+    }
+
+    .sized-box {
+      height: 100px;
+      width: 300px;
+      border: 2px solid #2ecc71;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #2c3e50;
+      padding: 2px 4px;
+      border-radius: 3px;
+      color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lecture 5: CSS</h1>
+    <p class="highlight">San Jose, Steven Lee P.</p>
+  </header>
+
+  <section>
+    <h2>Text Styling Examples</h2>
+    <p class="center red">This paragraph is centered and colored red using a class.</p>
+    <p id="blue-paragraph">This paragraph has an ID and is styled to be centered and blue.</p>
+    <p class="center">This text is centered using a class named <code>.center</code>.</p>
+    <h2 class="center">This header uses the <code>.center</code> class for alignment.</h2>
+    <h2 class="green">I expected this to be red, but CSS says it's green!</h2>
+  </section>
+
+  <section>
+    <h2>CSS Color Properties</h2>
+    <ul>
+      <li><span class="highlight">Background Color</span></li>
+      <li><span class="highlight">Text Color</span></li>
+      <li><span class="highlight">Border Color</span></li>
+    </ul>
+    <h3>Color Formats:</h3>
+    <ul>
+      <li>RGB - <code>rgb(255, 0, 0)</code></li>
+      <li>RGBA - <code>rgba(255, 0, 0, 0.5)</code></li>
+      <li>HEX - <code>#ff0000</code></li>
+      <li>HSL - <code>hsl(0, 100%, 50%)</code></li>
+      <li>HSLA - <code>hsla(0, 100%, 50%, 0.5)</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>CSS Backgrounds</h2>
+    <p class="bg-image">This paragraph has a background image applied using CSS.</p>
+  </section>
+
+  <section>
+    <h2>Borders</h2>
+    <p class="border-box">Standard solid border</p>
+    <p class="border-box border-dashed">Dashed border</p>
+    <p class="border-box border-dotted">Dotted border</p>
+    <p class="border-box border-double">Double border</p>
+    <p class="border-box border-groove">Groove border</p>
+    <p class="border-box border-ridge">Ridge border</p>
+    <p class="border-box border-inset">Inset border</p>
+    <p class="border-box border-outset">Outset border</p>
+    <p class="border-box" style="border: none;">No border</p>
+    <p class="border-box" style="border: hidden;">Hidden border</p>
+    <p class="border-box border-left">Left border only</p>
+    <p class="border-box border-right">Right border only</p>
+    <p class="border-box border-top">Top border only</p>
+    <p class="border-box border-bottom">Bottom border only</p>
+    <p class="rounded">This paragraph has rounded borders.</p>
+  </section>
+
+  <section>
+    <h2>Element Sizing</h2>
+    <div class="sized-box">This box has a set width and height.</div>
+  </section>
+
+</body>
+</html>

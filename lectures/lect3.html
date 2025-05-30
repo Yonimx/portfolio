@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lecture 3: Tables in HTML</title>
+  <style>
+    .bordered {
+      border: 1px solid black;
+    }
+
+    .collapsed {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .collapsed th, .collapsed td {
+      border: 1px solid black;
+    }
+
+    .padded td, .padded th {
+      padding: 10px;
+    }
+
+    .left-align th {
+      text-align: left;
+    }
+
+    .spacing {
+      border-collapse: separate;
+      border-spacing: 15px;
+      border: 1px solid black;
+    }
+
+    .spacing th, .spacing td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lecture 3: Tables in HTML</h1>
+
+  <h2>Raw Table (no CSS, no borders)</h2>
+  <table>
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Alice</td><td>Rivera</td><td>22</td>
+    </tr>
+  </table>
+
+  <h2>Table with Border</h2>
+  <table class="bordered">
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Mark</td><td>Lopez</td><td>28</td>
+    </tr>
+  </table>
+
+  <h2>Collapsed Borders</h2>
+  <table class="collapsed">
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Sophie</td><td>Nguyen</td><td>19</td>
+    </tr>
+  </table>
+
+  <h2>Padded Cells</h2>
+  <table class="collapsed padded">
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Leo</td><td>Tanaka</td><td>24</td>
+    </tr>
+  </table>
+
+  <h2>Left-Aligned Headings</h2>
+  <table class="collapsed padded left-align">
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Nina</td><td>Khan</td><td>21</td>
+    </tr>
+  </table>
+
+  <h2>Border Spacing</h2>
+  <table class="spacing padded">
+    <tr>
+      <th>First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Jayden</td><td>Martinez</td><td>26</td>
+    </tr>
+  </table>
+
+  <h2>Using Colspan</h2>
+  <table class="collapsed padded">
+    <tr>
+      <th colspan="3">User Information</th>
+    </tr>
+    <tr>
+      <td>Clara</td><td>Fernandez</td><td>23</td>
+    </tr>
+    <tr>
+      <td colspan="4">Extra Notes: haha</td>
+    </tr>
+  </table>
+
+  <h2>Using Rowspan</h2>
+  <table class="collapsed padded">
+    <tr>
+      <th rowspan="2">First Name</th><th>Last Name</th><th>Age</th>
+    </tr>
+    <tr>
+      <td>Garcia</td><td>27</td>
+    </tr>
+  </table>
+
+</body>
+</html>
