@@ -209,6 +209,7 @@ body {
                 font-size: 0.85rem;
             }
         }       .btn-view {
+            margin-top: 5px;
             background-color: #3498db;
             border: none;
             border-radius: 6px;
