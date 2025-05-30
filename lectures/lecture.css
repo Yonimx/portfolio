@@ -208,7 +208,8 @@ body {
                 padding: 0.5rem 1rem;
                 font-size: 0.85rem;
             }
-        }       .btn-view {
+        }       
+        .btn-view {
             margin-top: 5px;
             background-color: #3498db;
             border: none;
