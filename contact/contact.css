@@ -73,27 +73,4 @@
     .sidebar-profile img {
       border: 2px solid #e74c3c;
     }
-        .btn-view {
-            background-color: #3498db;
-            border: none;
-            border-radius: 6px;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-            color: white;
-            text-decoration: none;
-        }
-
-        .btn-view:hover {
-            background-color: #2980b9;
-            transform: translateY(-1px);
-            color: white;
-        }
-
-        @media (max-width: 575.98px) {
-            .btn-view {
-                padding: 0.45rem 0.85rem;
-                font-size: 0.8rem;
-            }
-        }
+ 
