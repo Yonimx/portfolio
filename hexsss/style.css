@@ -261,8 +261,7 @@ svg {
   fill: url(#wordFill);
   stroke: rgba(255, 255, 255, 0.17);
   stroke-width: 1.2;
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
+  stroke-dasharray: 0 1400;
   animation: draw 2.8s var(--ease) 0.2s forwards, fill-in 1.4s ease 1.6s both;
 }
 
@@ -409,6 +408,11 @@ svg {
   will-change: transform;
 }
 
+/* fade the hexagons out before the photo fades, so nothing shows through the shirt */
+.layer-back {
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 80%);
+}
+
 .aura {
   position: absolute;
   inset: 12%;
@@ -486,7 +490,7 @@ svg {
   bottom: 0;
   width: 100%;
   height: auto;
-  mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 98%);
   filter: drop-shadow(0 0 36px rgba(255, 61, 79, 0.28));
   user-select: none;
   pointer-events: none;
@@ -653,7 +657,7 @@ svg {
 /* ---------- Keyframes ---------- */
 
 @keyframes draw {
-  to { stroke-dashoffset: 0; }
+  to { stroke-dasharray: 1400 0; }
 }
 
 @keyframes fill-in {
@@ -782,6 +786,16 @@ svg {
   }
 }
 
+@media (max-width: 1199px) and (orientation: portrait) {
+  :root {
+    --stage: min(94vw, 60svh, 700px);
+  }
+
+  .wordmark {
+    bottom: calc(var(--stage) * 0.78);
+  }
+}
+
 @media (max-width: 860px) {
   .links,
   .talk {
@@ -848,7 +862,7 @@ svg {
   }
 
   .wordmark text {
-    stroke-dashoffset: 0;
+    stroke-dasharray: none;
   }
 
   html {
