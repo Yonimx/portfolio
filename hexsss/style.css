@@ -1,0 +1,857 @@
+/* =========================================================
+   hexsss — portfolio
+   Plain CSS, no frameworks, no vendor prefixes
+   ========================================================= */
+
+:root {
+  --bg: #07070a;
+  --text: #f5f5f7;
+  --muted: #8d8d99;
+  --line: rgba(255, 255, 255, 0.09);
+  --glass: rgba(18, 18, 24, 0.62);
+  --accent: #ff3d4f;
+  --accent-2: #ff8a5b;
+
+  --font: "Space Grotesk", system-ui, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --pad: clamp(16px, 4vw, 56px);
+  --stage: min(82svh, 760px, 60vw);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ---------- Background layers ---------- */
+
+#hexfield {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 95% at 55% 45%, transparent 30%, rgba(7, 7, 10, 0.8) 72%, var(--bg) 100%);
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Nav ---------- */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px var(--pad);
+  animation: fade-down 1s var(--ease) 0.2s both;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.brand svg {
+  width: 28px;
+  height: 32px;
+}
+
+.brand b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.h-out {
+  fill: none;
+  stroke: url(#accentGrad);
+  stroke-width: 3;
+}
+
+.h-in {
+  fill: var(--accent);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: beat 2.4s ease-in-out infinite;
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+}
+
+.links a {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.links a:hover {
+  color: var(--text);
+}
+
+.links a.active {
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 500;
+}
+
+.talk {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  font-size: 0.9rem;
+  transition: border-color 0.25s;
+}
+
+.talk svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: translate 0.25s var(--ease);
+}
+
+.talk:hover {
+  border-color: var(--accent);
+}
+
+.talk:hover svg {
+  translate: 2px -2px;
+}
+
+.menu-btn {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  place-content: center;
+  gap: 6px;
+}
+
+.menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform 0.3s var(--ease);
+}
+
+.nav.open .menu-btn span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.nav.open .menu-btn span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* Giant outlined username */
+.wordmark {
+  position: absolute;
+  left: calc(50% - min(47vw, 700px));
+  top: 12svh;
+  width: min(94vw, 1400px);
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.wordmark text {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 250px;
+  fill: url(#wordFill);
+  stroke: rgba(255, 255, 255, 0.17);
+  stroke-width: 1.2;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: draw 2.8s var(--ease) 0.2s forwards, fill-in 1.4s ease 1.6s both;
+}
+
+/* Intro text block */
+.intro {
+  position: absolute;
+  left: var(--pad);
+  bottom: clamp(32px, 9svh, 96px);
+  z-index: 5;
+  max-width: 380px;
+}
+
+.intro > * {
+  animation: rise 1s var(--ease) both;
+}
+
+.intro > :nth-child(1) { animation-delay: 0.5s; }
+.intro > :nth-child(2) { animation-delay: 0.6s; }
+.intro > :nth-child(3) { animation-delay: 0.75s; }
+.intro > :nth-child(4) { animation-delay: 0.9s; }
+
+.hi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.hi::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.intro h1 {
+  margin-top: 14px;
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.intro h1 span {
+  display: block;
+  color: var(--accent);
+}
+
+.role {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  color: #c9c9d2;
+}
+
+.role svg {
+  width: 14px;
+  height: 16px;
+  fill: var(--accent);
+}
+
+.cta {
+  margin-top: 28px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: translate 0.3s var(--ease), background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: translate 0.3s var(--ease);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 34px -12px rgba(255, 61, 79, 0.8);
+}
+
+.btn.primary:hover {
+  translate: 0 -2px;
+  background: #ff5465;
+  box-shadow: 0 18px 40px -12px rgba(255, 61, 79, 0.9);
+}
+
+.btn.primary:hover svg {
+  translate: 3px 0;
+}
+
+.btn.icon {
+  width: 52px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.btn.icon:hover {
+  translate: 0 -2px;
+  border-color: var(--accent);
+}
+
+/* ---------- Photo stage ---------- */
+
+.stage {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - var(--stage) / 2 + 4vw);
+  width: var(--stage);
+  aspect-ratio: 1;
+  z-index: 2;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.aura {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 61, 79, 0.4), rgba(255, 61, 79, 0) 65%);
+  filter: blur(30px);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: rings-in 1.6s var(--ease) 0.3s both;
+}
+
+.spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 90s linear infinite;
+}
+
+.ring-outer {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 9;
+}
+
+.tick {
+  fill: var(--accent);
+}
+
+.ring-mid {
+  fill: none;
+  stroke: url(#accentGrad);
+  stroke-width: 1.5;
+  stroke-dasharray: 150 50 6 50;
+  opacity: 0.75;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 50s linear infinite reverse;
+}
+
+.core {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: breathe-core 6s ease-in-out infinite;
+}
+
+.core-fill {
+  fill: url(#coreFill);
+}
+
+.core-grid {
+  fill: url(#hexPattern);
+}
+
+.core-edge {
+  fill: none;
+  stroke: url(#accentGrad);
+  stroke-width: 2;
+}
+
+.scan {
+  fill: #fff;
+  filter: drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 2px var(--accent));
+}
+
+.portrait {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+  filter: drop-shadow(0 0 36px rgba(255, 61, 79, 0.28));
+  user-select: none;
+  pointer-events: none;
+  animation: portrait-in 1.4s var(--ease) 0.35s both;
+}
+
+/* Floating badges */
+.float {
+  position: absolute;
+  z-index: 3;
+}
+
+.f-handle { left: 66%; top: 25%; }
+.f-code   { left: -4%;  top: 30%; }
+.f-term   { right: -2%; top: 4%;  }
+.f-chip   { left: 5%;   top: 64%; }
+.f-git    { right: -6%; top: 50%; }
+
+.badge {
+  width: 64px;
+  height: 74px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+  animation: pop 0.9s var(--ease) var(--d) both, bob 6s ease-in-out calc(var(--d) + 0.9s) infinite;
+}
+
+.f-term .badge { animation-duration: 0.9s, 7s; }
+.f-chip .badge { animation-duration: 0.9s, 5.5s; }
+.f-git  .badge { animation-duration: 0.9s, 6.5s; }
+
+.badge .bg {
+  fill: rgba(16, 16, 22, 0.85);
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1;
+  transition: stroke 0.3s;
+}
+
+.badge .ic {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s;
+}
+
+.float:hover .bg,
+.float:hover .ic {
+  stroke: var(--accent);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  animation: pop 0.9s var(--ease) 1.5s both, bob 7s ease-in-out 2.4s infinite;
+}
+
+.chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: ping 2s ease-out infinite;
+}
+
+/* ---------- Section rail ---------- */
+
+.rail {
+  position: absolute;
+  right: var(--pad);
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  animation: fade-in 1s ease 1.4s both;
+}
+
+.rail i {
+  width: 9px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.18);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.rail i.on {
+  background: var(--accent);
+  scale: 1.35;
+}
+
+/* ---------- Rotating scroll badge ---------- */
+
+.scroll {
+  position: absolute;
+  right: var(--pad);
+  bottom: clamp(32px, 9svh, 96px);
+  z-index: 5;
+  width: 116px;
+  height: 116px;
+  display: grid;
+  place-items: center;
+  animation: fade-in 1s ease 1.6s both;
+}
+
+.scroll-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 18s linear infinite;
+}
+
+.scroll-ring text {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--muted);
+  transition: fill 0.3s;
+}
+
+.scroll-core {
+  width: 42px;
+  height: 48px;
+}
+
+.sc-hex {
+  fill: rgba(16, 16, 22, 0.85);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1.5;
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.sc-arrow {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+.scroll:hover .sc-hex {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.scroll:hover .scroll-ring text {
+  fill: var(--text);
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fill-in {
+  from { fill-opacity: 0; }
+  to   { fill-opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; translate: 0 24px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes portrait-in {
+  from { opacity: 0; translate: 0 60px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes rings-in {
+  from { opacity: 0; scale: 0.8; rotate: -20deg; }
+  to   { opacity: 1; scale: 1; rotate: 0deg; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-down {
+  from { opacity: 0; translate: 0 -16px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes pop {
+  from { opacity: 0; scale: 0.3; }
+  to   { opacity: 1; scale: 1; }
+}
+
+@keyframes bob {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -10px; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.75; scale: 1; }
+  50%      { opacity: 1; scale: 1.06; }
+}
+
+@keyframes breathe-core {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.025); }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(0.75); }
+}
+
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 61, 79, 0.7); }
+  100% { box-shadow: 0 0 0 10px rgba(255, 61, 79, 0); }
+}
+
+@keyframes nudge {
+  0%, 100% { translate: 0 -2px; }
+  50%      { translate: 0 3px; }
+}
+
+/* ---------- Tablet & phone: stacked layout ---------- */
+
+@media (max-width: 1199px) {
+  :root {
+    --stage: min(94vw, 54svh, 620px);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 104px;
+  }
+
+  .intro {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: none;
+    padding: 0 var(--pad);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro h1 {
+    font-size: clamp(1.9rem, 6vw, 3.2rem);
+  }
+
+  .intro h1 span {
+    display: inline;
+  }
+
+  .cta {
+    margin-top: 22px;
+  }
+
+  .stage {
+    position: relative;
+    left: auto;
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+
+  .wordmark {
+    top: auto;
+    bottom: calc(var(--stage) * 0.5);
+  }
+
+  .rail,
+  .scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .links,
+  .talk {
+    display: none;
+  }
+
+  .menu-btn {
+    display: grid;
+  }
+
+  .nav.open .links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 78px;
+    left: var(--pad);
+    right: var(--pad);
+    padding: 8px;
+    border-radius: 22px;
+    background: rgba(14, 14, 19, 0.92);
+    animation: fade-down 0.4s var(--ease) both;
+  }
+
+  .nav.open .links a {
+    padding: 14px 18px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .badge {
+    width: 46px;
+    height: 53px;
+  }
+
+  .chip {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+  }
+
+  .f-handle { left: 60%; top: 20%; }
+  .f-code   { left: 0;   top: 30%; }
+  .f-term   { right: 2%; top: 2%;  }
+  .f-chip   { left: 4%;  top: 62%; }
+  .f-git    { right: 0;  top: 50%; }
+
+  .btn {
+    height: 48px;
+  }
+
+  .btn.icon {
+    width: 48px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .wordmark text {
+    stroke-dashoffset: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
